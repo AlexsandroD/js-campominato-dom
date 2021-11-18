@@ -67,3 +67,58 @@ main{
 .bomb{
     background-color: red;
 }
+
+
+#level{
+    padding: 5px;
+    background-color: #7fffd4;
+    border: none;
+    text-align: center;
+    margin: 0 10px;
+    border-radius: 10px;
+    
+    
+}
+
+#level:hover{
+    filter: invert();
+}
+
+
+label{
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 20px;
+}
+
+input{
+    height: 25px;
+    width: 40px;
+    
+}
+
+input::placeholder{
+    text-align: center;
+    font-weight: 600;
+}
+input[type=number]::-webkit-inner-spin-button {
+    opacity: 1;
+  }
+
+
+  button{
+      width: 60px;
+      padding: 5px;
+      text-transform: uppercase;
+      background-color: #7fffd4;
+      border: none;
+      border-radius: 10px;
+  }
+
+  button:hover{
+      filter: invert();
+      opacity: 0.7;
+  }
+  button:active{
+      transform: scale(0.98);
+  }
