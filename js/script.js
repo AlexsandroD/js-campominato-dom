@@ -2,10 +2,9 @@
     
     const container = document.querySelector('.container');
     const button = document.getElementById('btn');
-    const bomb = 16;
     let risposta = scelta(100);
     let classeBox = classe('box');
- 
+    let bomb = howManyMine(16);
    
     function scelta (num){
         return num;
@@ -13,11 +12,16 @@
     function classe(stile){
         return stile;
     }
+    function howManyMine(num){
+        return num
+    }
+
     const addBox = () => {
         const node = document.createElement('div');  
         node.className = classeBox;
         return node
     }
+
 
 
             
@@ -49,7 +53,7 @@
             item.innerText = i + 1; 
             container.append(item);
             item.addEventListener('click', function(){
-                console.log(this.textContent)
+            console.log(this.textContent)
                     for(k = 0; k < risposta; k++){
                         
                         if(this.textContent == boom[k]){
@@ -75,6 +79,7 @@
 
     button.addEventListener('click',  () =>{
     const selectValue = document.getElementById('level').value;
+    const selectNumberOfMine = document.getElementById('numero-mine').value;
     container.innerHTML = '';
     arrayBombs = [];
     switch(selectValue){
@@ -82,17 +87,22 @@
         case 'easy':
             risposta = scelta(100) ;
             classeBox= classe('box');
+            bomb = howManyMine(selectNumberOfMine);
             break;
             
             case 'medium':
                 risposta = scelta(81) ;
                 classeBox= classe('box2');
+                bomb = howManyMine(selectNumberOfMine);
+
                 break;
                 
                 
                 case 'hard':
                 risposta = scelta(49) ;
-                classeBox= classe('box3')
+                classeBox= classe('box3');
+                bomb = howManyMine(selectNumberOfMine);
+
                 break;
                 default:
                 }
