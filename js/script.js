@@ -5,8 +5,8 @@
     const bomb = 16;
     let risposta = scelta(100);
     let classeBox = classe('box');
-
-
+ 
+   
     function scelta (num){
         return num;
     }
@@ -18,35 +18,47 @@
         node.className = classeBox;
         return node
     }
-    
-    const createBomb = () =>{
-        const arrayBombs = [];
 
-        while(arrayBombs.length < bomb){
-            const random = generateRandom(1,risposta);
-            if(!arrayBombs.includes(random)){
-                arrayBombs.push(random);
-            }
+
+            
+    const arrayBombs = [];
+    while(arrayBombs.length < bomb){
+    const random = generateRandom(1,risposta);
+    if(!arrayBombs.includes(random)){
+    arrayBombs.push(random);
         }
-        console.log(arrayBombs)
-       return arrayBombs
     }
+
+   
 
     generateItem();
 
+    // creare una variabile con il return di arraybombs 
+    // mettere l'indice[i] includes
+
     function generateItem (){
-        createBomb()
+        const boom = arrayBombs;
+        console.log(boom);
         for(let i = 0; i < risposta; i++){
             const item = addBox();
             item.classList.add('box')
             item.innerText = i + 1; 
             container.append(item);
             item.addEventListener('click', function(){
-            if(!arrayBombs.includes(item)){
-                item.classList.add('active');
-            }else{item.classList.add('bomb')}
-            });
+                // while(i < risposta){
+                //     if(!item.textContent(boom)){
+                //        let clearbox = document.querySelectorAll('box').classList.add('active');
+                       
+                //     }else{
+                //         let clearbox = document.querySelectorAll('box').classList.add('bomb');
+                //     }
+                // }               
+            })
+            function lost(){
+                item.classList.add('bomb');
         }
+        }
+       
     }
 
     function generateRandom(min,max){
