@@ -42,7 +42,7 @@
             item.innerText = i + 1; 
             container.append(item);
             item.addEventListener('click', function(){
-            if(!item.contains(arrayBombs)){
+            if(!arrayBombs.includes(item)){
                 item.classList.add('active');
             }else{item.classList.add('bomb')}
             });
