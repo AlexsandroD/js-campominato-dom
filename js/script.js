@@ -21,11 +21,15 @@
 
 
             
-    const arrayBombs = [];
-    while(arrayBombs.length < bomb){
-    const random = generateRandom(1,risposta);
-    if(!arrayBombs.includes(random)){
-    arrayBombs.push(random);
+    let arrayBombs = [];
+    mentre()
+    function mentre (){
+        
+        while(arrayBombs.length < bomb){
+        const random = generateRandom(1,risposta);
+        if(!arrayBombs.includes(random)){
+        arrayBombs.push(random);
+            }
         }
     }
 
@@ -45,14 +49,16 @@
             item.innerText = i + 1; 
             container.append(item);
             item.addEventListener('click', function(){
-                // while(i < risposta){
-                //     if(!item.textContent(boom)){
-                //        let clearbox = document.querySelectorAll('box').classList.add('active');
-                       
-                //     }else{
-                //         let clearbox = document.querySelectorAll('box').classList.add('bomb');
-                //     }
-                // }               
+                console.log(this.textContent)
+                    for(k = 0; k < risposta; k++){
+                        
+                        if(this.textContent == boom[k]){
+                         this.classList.add(lost());
+                        }else{
+                            this.classList.add('active')
+                        }
+                    }
+          
             })
             function lost(){
                 item.classList.add('bomb');
@@ -70,28 +76,29 @@
     button.addEventListener('click',  () =>{
     const selectValue = document.getElementById('level').value;
     container.innerHTML = '';
-    
-        switch(selectValue){
-
-            case 'easy':
-                risposta = scelta(100) ;
-                classeBox= classe('box');
+    arrayBombs = [];
+    switch(selectValue){
+        
+        case 'easy':
+            risposta = scelta(100) ;
+            classeBox= classe('box');
             break;
-
+            
             case 'medium':
                 risposta = scelta(81) ;
                 classeBox= classe('box2');
-            break;
-            
-            
-            case 'hard':
+                break;
+                
+                
+                case 'hard':
                 risposta = scelta(49) ;
                 classeBox= classe('box3')
-            break;
-            default:
-         }
-        
-        
+                break;
+                default:
+                }
+                
+                
+         mentre()
          generateItem();        
     })
 
